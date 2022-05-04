@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/estilo.css"
+      th:href="@{/css/estilo.css}"/>
+<head>
+    <title>Registrar nuevo usuario</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+    <h1>Seguridad</h1>
+    <h2>Registro</h2>
+    <form action="#" th:action="@{/registro}"
+          th:object="${usuario}" method="post">
+        <table>
+            <tr>
+                <td><label>Nombre</label></td>
+                <td><input type="text" th:field="*{nombre}"/></td>
+            </tr>
+            <tr>
+                <td><label>Telefono</label></td>
+                <td><input type="text" th:field="*{telefono}" maxlength="9"/></td>
+            </tr>
+            <tr>
+                <td><label>Correo</label></td>
+                <td><input type="text" th:field="*{correo}"/></td>
+            </tr>
+            <tr>
+                <td><label>Contraseña</label></td>
+                <td><input type="password" th:field="*{pwd}" /></td>
+            </tr>
+            <td colspan="2"><input type="submit" value="Registro"/></td>
+            <td colspan="2"><a href="/"> <button type="button" value="return">Return</button></a></td>
+        </table>
+    </form>
+</body>
+</html>
