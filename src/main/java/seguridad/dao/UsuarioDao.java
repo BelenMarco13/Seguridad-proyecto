@@ -28,8 +28,8 @@ public class UsuarioDao {
     public void addUsuario(Usuario usuario){
         BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
         String pwd = passwordEncryptor.encryptPassword(usuario.getPwd());
-        jdbcTemplate.update("INSERT INTO Usuario VALUES(?,?,?)",
-                usuario.getNombre(), usuario.getCorreo(), pwd);
+        jdbcTemplate.update("INSERT INTO Usuario VALUES(?,?,?,?)",
+                usuario.getNombre(), usuario.getCorreo(), pwd, usuario.getTelefono());
 
         usuario.setPwd(pwd);
         listaUsuarios.put(usuario.getCorreo(), usuario);

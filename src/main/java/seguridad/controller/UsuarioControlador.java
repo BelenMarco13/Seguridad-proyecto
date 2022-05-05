@@ -1,6 +1,5 @@
 package seguridad.controller;
 
-import org.jasypt.util.password.BasicPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,7 +43,7 @@ public class UsuarioControlador {
         }
 
         session.setAttribute("usuario", usuario);
-        return "redirect:../principal";
+        return "principal";
     }
 
     @RequestMapping("/logout")
@@ -69,12 +68,9 @@ public class UsuarioControlador {
             return "registro";
         }
 
-        BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
-        usuario.setPwd(passwordEncryptor.encryptPassword(usuario.getPwd()));
-
         usuarioDao.addUsuario(usuario);
         session.setAttribute("usuario", usuario);
-        return "redirect:../principal";
+        return "principal";
     }
 
 }
