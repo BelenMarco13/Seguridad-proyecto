@@ -39,6 +39,10 @@ public class UsuarioDao {
 
         List<Usuario> listUsuario = jdbcTemplate.query("SELECT * FROM Usuario WHERE correo = ?",
                 new UsuarioRowMapper(), correo);
+
+        if(listUsuario.size() == 0)
+            return null;
+
         Usuario usuario = listUsuario.get(0);
         if(usuario == null)
             return null;

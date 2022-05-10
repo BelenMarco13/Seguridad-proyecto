@@ -38,7 +38,7 @@ public class UsuarioControlador {
         usuario = usuarioDao.getUsuario(usuario.getCorreo(), usuario.getPwd());
 
         if (usuario == null) {
-            bindingResult.rejectValue("pwd", "clave incorrecta", "Clave incorrecta");
+            bindingResult.rejectValue("pwd", "datos incorrectos", "Correo o clave incorrecta");
             return "login";
         }
 
