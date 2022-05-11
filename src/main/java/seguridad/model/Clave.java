@@ -11,10 +11,4 @@ public class Clave {
         this.clave = clave;
     }
 
-    @Override
-    public String toString() {
-        return "Clave{" +
-                "clave='" + clave + '\'' +
-                '}';
-    }
 }

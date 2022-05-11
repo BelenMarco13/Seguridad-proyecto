@@ -53,13 +53,4 @@ public class UsuarioDao {
         else
             return null;
     }
-
-    public List<Usuario> getUsuarios() {
-        try {
-            return jdbcTemplate.query("SELECT * FROM Usuario", new UsuarioRowMapper());
-        }
-        catch(EmptyResultDataAccessException e) {
-            return new ArrayList<Usuario>();
-        }
-    }
 }
