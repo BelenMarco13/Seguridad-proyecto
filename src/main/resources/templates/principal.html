@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <link rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="/css/estilo.css"
@@ -8,9 +8,11 @@
     <meta charset="UTF-8">
     <title>Página principal</title>
 </head>
-<body>
+<body th:object="${session}">
     <h1>Seguridad</h1>
     <h3>Bienvenido</h3>
+    Su clave secreta es <td th:text="*{usuario.clave}"></td>
+    por favor introducela en Google Authenticator, no podrá acceder a la web en caso contrario.
 
     <td colspan="2"><a href="/logout"> <button type="button" value="logout">Salir</button></a></td>
 </body>

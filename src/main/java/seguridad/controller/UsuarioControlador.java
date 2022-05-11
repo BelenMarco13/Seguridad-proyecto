@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import seguridad.dao.ClaveDao;
 import seguridad.dao.UsuarioDao;
 import seguridad.model.Usuario;
 
@@ -17,6 +18,9 @@ public class UsuarioControlador {
 
     @Autowired
     private UsuarioDao usuarioDao;
+
+    @Autowired
+    private ClaveDao claveDao;
 
     @RequestMapping("/login")
     public String login(Model model) {
@@ -43,7 +47,7 @@ public class UsuarioControlador {
         }
 
         session.setAttribute("usuario", usuario);
-        return "principal";
+        return "totp";
     }
 
     @RequestMapping("/logout")
@@ -67,6 +71,9 @@ public class UsuarioControlador {
         if (bindingResult.hasErrors()) {
             return "registro";
         }
+
+        String key = claveDao.generateSecretKey();
+        usuario.setClave(key);
 
         usuarioDao.addUsuario(usuario);
         session.setAttribute("usuario", usuario);

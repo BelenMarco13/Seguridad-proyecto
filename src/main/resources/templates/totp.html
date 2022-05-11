@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/estilo.css"
+      th:href="@{/css/estilo.css}"/>
+<head>
+    <meta charset="UTF-8">
+    <title>TOTP</title>
+</head>
+<body th:object="${session}">
+    <h1>Seguridad</h1>
+    <h2>Autenticación TOTP</h2>
+    <h5>Por favor, introduce la clave generada en Google Authenticator</h5>
+
+    <form action="#" th:action="@{/totp}"
+          th:object="${usuario}" method="post">
+        <p>
+            <label>Clave:</label>
+            <input class="form_control" type="text" th:field="*{clave}"/>
+            <div class="error" th:if="${#fields.hasErrors('clave')}"
+                 th:errors="*{clave}"></div>
+        </p>
+        <td colspan="2"><input type="submit" value="Login"/></td>
+        <td colspan="2"><a href="/"> <button type="button" value="return">Return</button></a></td>
+    </form>
+</body>
+</html>

@@ -5,6 +5,15 @@ public class Usuario {
     private String nombre;
     private String pwd;
     private int telefono;
+    private String clave;
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
 
     public String getCorreo() {
         return correo;
