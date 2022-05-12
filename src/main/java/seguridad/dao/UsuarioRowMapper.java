@@ -1,6 +1,7 @@
 package seguridad.dao;
 
 import org.springframework.jdbc.core.RowMapper;
+import seguridad.model.Clave;
 import seguridad.model.Usuario;
 
 import java.sql.ResultSet;
